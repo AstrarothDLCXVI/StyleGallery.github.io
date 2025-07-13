@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Componentes Web</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #000000;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Fondo animado con partículas */
+        .background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
+        }
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            animation: float-up 10s infinite;
+        }
+
+        @keyframes float-up {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) scale(1.5);
+            }
+        }
+
+        /* Header principal */
+        .main-header {
+            padding: 30px 50px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #667eea 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 5s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #888;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(102, 126, 234, 0.2);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 20px;
+            font-size: 14px;
+            color: #667eea;
+            margin-bottom: 30px;
+        }
+
+        /* Grid de componentes */
+        .components-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 60px;
+            font-size: 1.1rem;
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .component-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .component-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .component-card:hover::before {
+            opacity: 1;
+        }
+
+        .component-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .card-description {
+            color: #888;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-count {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(102, 126, 234, 0.2);
+            border-radius: 15px;
+            font-size: 14px;
+            color: #667eea;
+        }
+
+        /* Estado deshabilitado */
+        .component-card.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .component-card.disabled:hover {
+            transform: none;
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: none;
+        }
+
+        .coming-soon-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 0, 220, 0.2);
+            color: #ff00dc;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 12px;
+            border: 1px solid rgba(255, 0, 220, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 100px;
+        }
+
+        .footer p {
+            color: #888;
+        }
+
+        /* Animación de entrada */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .component-card:nth-child(1) { animation-delay: 0.1s; }
+        .component-card:nth-child(2) { animation-delay: 0.2s; }
+        .component-card:nth-child(3) { animation-delay: 0.3s; }
+        .component-card:nth-child(4) { animation-delay: 0.4s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .components-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-header {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">Styles Gallery</div>
+            <div class="nav-links">
+                <a href="#components">Componentes</a>
+                <a href="#about">Acerca de</a>
+                <a href="#contact">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">Diseños Web Innovadores</h1>
+            <p class="fade-in">Explora nuestra colección de componentes web modernos con código CSS y JavaScript listo para usar. Desde botones con efectos neón hasta headers con glassmorphism.</p>
+        </div>
+    </section>
+
+    <section class="components-section" id="components">
+        <h2 class="section-title fade-in">Colección de Componentes</h2>
+        <p class="section-subtitle fade-in">Selecciona una categoría para explorar diferentes estilos y obtener el código</p>
+
+        <div class="components-grid">
+            <a href="/html/buttons.html" class="component-card fade-in">
+                <div class="card-icon">🎨</div>
+                <h3 class="card-title">Botones</h3>
+                <p class="card-description">Colección de botones modernos con efectos hover, animaciones y estilos únicos como neón, glassmorphism y cyberpunk.</p>
+                <span class="card-count">8 estilos disponibles</span>
+            </a>
+
+            <a href="/html/hearder.html" class="component-card fade-in">
+                <div class="card-icon">📱</div>
+                <h3 class="card-title">Headers</h3>
+                <p class="card-description">Headers responsive con efectos visuales impresionantes, desde glassmorphism hasta animaciones de partículas.</p>
+                <span class="card-count">2 estilos disponibles</span>
+            </a>
+
+            <div class="component-card disabled fade-in">
+                <span class="coming-soon-badge">Próximamente</span>
+                <div class="card-icon">📝</div>
+                <h3 class="card-title">Formularios</h3>
+                <p class="card-description">Formularios interactivos con validación animada, inputs flotantes y diseños modernos.</p>
+                <span class="card-count">En desarrollo</span>
+            </div>
+
+            <div class="component-card disabled fade-in">
+                <span class="coming-soon-badge">Próximamente</span>
+                <div class="card-icon">🎴</div>
+                <h3 class="card-title">Cards</h3>
+                <p class="card-description">Tarjetas con efectos 3D, hover interactivos y diseños creativos para mostrar contenido.</p>
+                <span class="card-count">En desarrollo</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Styles Gallery. Diseñado por Astra</p>
+    </footer>
+
+    <script>
+        // Crear partículas de fondo
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            const size = Math.random() * 5 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = Math.random() * 10 + 10 + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            
+            document.getElementById('particles').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 20000);
+        }
+
+        // Crear partículas periódicamente
+        setInterval(createParticle, 1000);
+
+        // Crear partículas iniciales
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createParticle, i * 200);
+        }
+
+        // Efecto de mouse en las tarjetas
+        document.querySelectorAll('.component-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--mouse-x', x + 'px');
+                card.style.setProperty('--mouse-y', y + 'px');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animación de entrada para elementos
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

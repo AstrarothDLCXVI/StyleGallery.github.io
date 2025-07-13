@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Estilos de Botones</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0f0f23;
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00dcff, #ff00dc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(180deg); }
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 50px;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .button-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .button-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 220, 255, 0.3);
+            border-color: rgba(0, 220, 255, 0.5);
+        }
+
+        .button-card h3 {
+            margin-bottom: 20px;
+            color: #00dcff;
+            font-size: 1.2rem;
+        }
+
+        .button-demo {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100px;
+        }
+
+        .code-section {
+            position: relative;
+        }
+
+        .code-block {
+            background: #1a1a2e;
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #e0e0e0;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #00dcff;
+            color: #000;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: #00a8cc;
+            transform: scale(1.05);
+        }
+
+        .copy-btn.copied {
+            background: #00ff88;
+        }
+
+        /* Estilos de botones */
+        .btn-neon {
+            padding: 15px 40px;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: transparent;
+            color: #00ff88;
+            border: 2px solid #00ff88;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-neon:hover {
+            color: #000;
+            background: #00ff88;
+            box-shadow: 0 0 30px #00ff88, inset 0 0 10px rgba(0, 255, 136, 0.4);
+        }
+
+        .btn-gradient {
+            padding: 15px 40px;
+            font-size: 18px;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-glass {
+            padding: 15px 40px;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-3d {
+            padding: 15px 40px;
+            font-size: 18px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.1s ease;
+            box-shadow: 0 6px 0 #ee5a5a, 0 8px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-3d:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #ee5a5a, 0 4px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-outline-anim {
+            padding: 15px 40px;
+            font-size: 18px;
+            background: transparent;
+            color: #ffd700;
+            border: 2px solid #ffd700;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-anim::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #ffd700;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-outline-anim:hover {
+            color: #000;
+        }
+
+        .btn-outline-anim:hover::before {
+            left: 0;
+        }
+
+        .btn-pulse {
+            padding: 15px 40px;
+            font-size: 18px;
+            background: #ff00dc;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 0, 220, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(255, 0, 220, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 0, 220, 0);
+            }
+        }
+
+        .btn-cyberpunk {
+            padding: 15px 40px;
+            font-size: 18px;
+            background: #000;
+            color: #0ff;
+            border: 2px solid #0ff;
+            cursor: pointer;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+            transition: all 0.3s ease;
+        }
+
+        .btn-cyberpunk:hover {
+            background: #0ff;
+            color: #000;
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 20px #0ff);
+        }
+
+        .btn-liquid {
+            padding: 15px 40px;
+            font-size: 18px;
+            background: #4158D0;
+            background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-liquid::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+            border-radius: 10px;
+            filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-liquid:hover::before {
+            opacity: 1;
+        }
+
+        .btn-liquid:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00dcff;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00a8cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Galería de Estilos de Botones</h1>
+        <p class="subtitle">Explora diferentes estilos de botones modernos con su código CSS</p>
+
+        <div class="button-grid">
+            <!-- Botón Neón -->
+            <div class="button-card">
+                <h3>Botón Neón</h3>
+                <div class="button-demo">
+                    <button class="btn-neon">Hover Me</button>
+                </div>
+                <div class="code-section">
+                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    <pre class="code-block">.btn-neon {
+    padding: 15px 40px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: transparent;
+    color: #00ff88;
+    border: 2px solid #00ff88;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+    color: #000;
+    background: #00ff88;
+    box-shadow: 0 0 30px #00ff88, 
+                inset 0 0 10px rgba(0, 255, 136, 0.4);
+}</pre>
+                </div>
+            </div>
+
+            <!-- Botón Gradiente -->
+            <div class="button-card">
+                <h3>Botón Gradiente</h3>
+                <div class="button-demo">
+                    <button class="btn-gradient">Click Me</button>
+                </div>
+                <div class="code-section">
+                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    <pre class="code-block">.btn-gradient {
+    padding: 15px 40px;
+    font-size: 18px;
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+}</pre>
+                </div>
+            </div>
+
+            <!-- Botón Glassmorphism -->
+            <div class="button-card">
+                <h3>Botón Glassmorphism</h3>
+                <div class="button-demo">
+                    <button class="btn-glass">Glass Button</button>
+                </div>
+                <div class="code-section">
+                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    <pre class="code-block">.btn-glass {
+    padding: 15px 40px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}</pre>
+                </div>
+            </div>
+
+            <!-- Botón 3D -->
+            <div class="button-card">
+                <h3>Botón 3D</h3>
+                <div class="button-demo">
+                    <button class="btn-3d">Press Me</button>
+                </div>
+                <div class="code-section">
+                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    <pre class="code-block">.btn-3d {
+    padding: 15px 40px;
+    font-size: 18px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.1s ease;
+    box-shadow: 0 6px 0 #ee5a5a, 
+                0 8px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-3d:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #ee5a5a, 
+                0 4px 5px rgba(0, 0, 0, 0.3);
+}</pre>
+                </div>
+            </div>
+
+            <!-- Botón con Animación de Relleno -->
+            <div class="button-card">
+                <h3>Botón Outline Animado</h3>
+                <div class="button-demo">
+                    <button class="btn-outline-anim">Hover Me</button>
+                </div>
+                <div class="code-section">
+                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    <pre class="code-block">.btn-outline-anim {
+    padding: 15px 40px;
+    font-size: 18px;
+    background: transparent;
+    color: #ffd700;
+    border: 2px solid #ffd700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-anim::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #ffd700;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.btn-outline-anim:hover {
+    color: #000;
+}
+
+.btn-outline-anim:hover::before {
+    left: 0;
+}</pre>
+                </div>
+            </div>
+
+            <!-- Botón Pulse -->
+            <div class="button-card">
+                <h3>Botón Pulse</h3>
+                <div class="button-demo">
+                    <button class="btn-pulse">Pulse</button>
+                </div>
+                <div class="code-section">
+                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    <pre class="code-block">.btn-pulse {
+    padding: 15px 40px;
+    font-size: 18px;
+    background: #ff00dc;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 220, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(255, 0, 220, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 220, 0);
+    }
+}</pre>
+                </div>
+            </div>
+
+            <!-- Botón Cyberpunk -->
+            <div class="button-card">
+                <h3>Botón Cyberpunk</h3>
+                <div class="button-demo">
+                    <button class="btn-cyberpunk">Cyber</button>
+                </div>
+                <div class="code-section">
+                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    <pre class="code-block">.btn-cyberpunk {
+    padding: 15px 40px;
+    font-size: 18px;
+    background: #000;
+    color: #0ff;
+    border: 2px solid #0ff;
+    cursor: pointer;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 
+                      100% 20px, 100% 100%, 
+                      20px 100%, 0 calc(100% - 20px));
+    transition: all 0.3s ease;
+}
+
+.btn-cyberpunk:hover {
+    background: #0ff;
+    color: #000;
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 20px #0ff);
+}</pre>
+                </div>
+            </div>
+
+            <!-- Botón Líquido -->
+            <div class="button-card">
+                <h3>Botón Líquido</h3>
+                <div class="button-demo">
+                    <button class="btn-liquid">Liquid</button>
+                </div>
+                <div class="code-section">
+                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    <pre class="code-block">.btn-liquid {
+    padding: 15px 40px;
+    font-size: 18px;
+    background: #4158D0;
+    background-image: linear-gradient(43deg, 
+                      #4158D0 0%, 
+                      #C850C0 46%, 
+                      #FFCC70 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-liquid::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(43deg, 
+                #4158D0 0%, 
+                #C850C0 46%, 
+                #FFCC70 100%);
+    border-radius: 10px;
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.btn-liquid:hover::before {
+    opacity: 1;
+}
+
+.btn-liquid:hover {
+    transform: translateY(-2px);
+}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = '¡Copiado!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = 'Copiar';
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Error al copiar:', err);
+            });
+        }
+
+        // Añadir efecto de hover dinámico a las tarjetas
+        document.querySelectorAll('.button-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.background = `
+                    radial-gradient(
+                        circle at ${x}px ${y}px,
+                        rgba(0, 220, 255, 0.1) 0%,
+                        rgba(255, 255, 255, 0.05) 50%,
+                        rgba(255, 255, 255, 0.05) 100%
+                    )
+                `;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.background = 'rgba(255, 255, 255, 0.05)';
+            });
+        });
+    </script>
+</body>
+</html>
