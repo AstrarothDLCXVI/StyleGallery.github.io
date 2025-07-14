@@ -1,0 +1,491 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleGradient 5s ease infinite;
+}
+
+@keyframes titleGradient {
+    0%, 100% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(45deg); }
+}
+
+.page-subtitle {
+    text-align: center;
+    color: #888;
+    margin-bottom: 50px;
+    font-size: 1.2rem;
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.button-showcase {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.button-showcase:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
+.button-info {
+    padding: 20px 30px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.button-info h3 {
+    color: #667eea;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.button-demo {
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.code-section {
+    position: relative;
+    margin-top: 20px;
+}
+
+.code-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.code-tab {
+    padding: 8px 20px;
+    background: rgba(102, 126, 234, 0.2);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.code-tab.active {
+    background: rgba(102, 126, 234, 0.5);
+    border-bottom: none;
+}
+
+.code-block {
+    background: #1a1a2e;
+    border-radius: 0 10px 10px 10px;
+    padding: 20px;
+    overflow-x: auto;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #e0e0e0;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+}
+
+.code-block.active {
+    display: block;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background: #667eea;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.copy-btn:hover {
+    background: #764ba2;
+    transform: scale(1.05);
+}
+
+.copy-btn.copied {
+    background: #00ff88;
+}
+
+/* Iconos Home personalizados */
+.home-icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.home-icon::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid currentColor;
+}
+
+.home-icon::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 12px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: currentColor;
+}
+
+/* Botón 1: Neon Glow Home */
+.home-btn-neon {
+    position: relative;
+    padding: 15px 40px;
+    background: transparent;
+    border: 2px solid #00ff88;
+    color: #00ff88;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.home-btn-neon .home-icon-neon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.home-btn-neon .home-icon-neon::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 10px solid #00ff88;
+    transition: all 0.3s ease;
+}
+
+.home-btn-neon .home-icon-neon::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 14px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00ff88;
+    transition: all 0.3s ease;
+}
+
+.home-btn-neon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #00ff88;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.home-btn-neon:hover {
+    color: #0a0a0a;
+    box-shadow: 0 0 30px #00ff88, inset 0 0 10px rgba(0, 255, 136, 0.2);
+    transform: translateY(-2px);
+}
+
+.home-btn-neon:hover::before {
+    left: 0;
+}
+
+.home-btn-neon:hover .home-icon-neon {
+    animation: bounce 0.6s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Botón 2: Glassmorphism Floating */
+.home-btn-glass {
+    position: relative;
+    padding: 18px 45px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.home-btn-glass .home-icon-glass {
+    width: 26px;
+    height: 26px;
+    position: relative;
+    animation: float-icon 3s ease-in-out infinite;
+}
+
+@keyframes float-icon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+.home-btn-glass .home-icon-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 11px solid rgba(255, 255, 255, 0.9);
+}
+
+.home-btn-glass .home-icon-glass::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid transparent;
+    box-sizing: border-box;
+}
+
+.home-btn-glass::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.home-btn-glass:hover {
+    transform: translateY(-3px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+}
+
+.home-btn-glass:hover::before {
+    opacity: 1;
+    animation: rotate-gradient 2s linear infinite;
+}
+
+@keyframes rotate-gradient {
+    0% { transform: rotate(45deg); }
+    100% { transform: rotate(405deg); }
+}
+
+/* Botón 3: Cyberpunk Circuit */
+.home-btn-cyber {
+    position: relative;
+    padding: 16px 50px;
+    background: #000;
+    border: 2px solid #0ff;
+    color: #0ff;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    overflow: hidden;
+}
+
+.home-btn-cyber .home-icon-cyber {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    z-index: 2;
+}
+
+.home-btn-cyber .home-icon-cyber::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 12px solid #0ff;
+    filter: drop-shadow(0 0 3px #0ff);
+}
+
+.home-btn-cyber .home-icon-cyber::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 16px;
+    background: #0ff;
+    position: relative;
+    filter: drop-shadow(0 0 3px #0ff);
+}
+
+.home-btn-cyber::before,
+.home-btn-cyber::after {
+    content: '';
+    position: absolute;
+    background: #0ff;
+    transition: all 0.3s ease;
+}
+
+.home-btn-cyber::before {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    animation: scan-line 3s linear infinite;
+}
+
+.home-btn-cyber::after {
+    content: 'HOME';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    font-weight: bold;
+    color: #0ff;
+    opacity: 0;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+@keyframes scan-line {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.home-btn-cyber:hover {
+    background: #0ff;
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #0ff, inset 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.home-btn-cyber:hover::after {
+    opacity: 0.1;
+}
+
+.home-btn-cyber:hover .home-icon-cyber::before,
+.home-btn-cyber:hover .home-icon-cyber::after {
+    border-bottom-color: #000;
+    background: #000;
+    filter: none;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .buttons-container {
+        grid-template-columns: 1fr;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+}
