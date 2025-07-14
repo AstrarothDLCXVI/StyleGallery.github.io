@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Estilos de Formularios</title>
+    <link rel="stylesheet" href="../css/form.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1 class="page-title">Galería de Estilos de Formularios</h1>
+        <p class="page-subtitle">Diseños modernos de formularios con validación y animaciones</p>
+
+        <!-- Formulario Glassmorphism con Floating Labels -->
+        <div class="form-showcase-container">
+            <div class="form-demo">
+                <form class="form-glass">
+                    <h2>Crear Cuenta</h2>
+                    <p class="form-subtitle">Completa el formulario para registrarte</p>
+                    
+                    <div class="form-group">
+                        <input type="text" id="name" required>
+                        <label for="name">Nombre completo</label>
+                        <span class="input-line"></span>
+                        <span class="error-message">Por favor ingresa tu nombre</span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" id="email" required>
+                        <label for="email">Correo electrónico</label>
+                        <span class="input-line"></span>
+                        <span class="error-message">Ingresa un correo válido</span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" id="password" required>
+                        <label for="password">Contraseña</label>
+                        <span class="input-line"></span>
+                        <span class="error-message">La contraseña debe tener al menos 8 caracteres</span>
+                    </div>
+
+                    <div class="form-group">
+                        <select id="country" required>
+                            <option value="" disabled selected></option>
+                            <option value="es">España</option>
+                            <option value="mx">México</option>
+                            <option value="ar">Argentina</option>
+                            <option value="co">Colombia</option>
+                            <option value="cl">Chile</option>
+                        </select>
+                        <label for="country">País</label>
+                        <span class="input-line"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="message" required></textarea>
+                        <label for="message">Mensaje (opcional)</label>
+                        <span class="input-line"></span>
+                    </div>
+
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="terms">
+                        <span class="checkbox-custom"></span>
+                        <label for="terms">Acepto los términos y condiciones</label>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="submit-btn">Crear Cuenta</button>
+                    </div>
+                </form>
+            </div>
+            <div class="form-info">
+                <h3>Glassmorphism Form con Floating Labels</h3>
+                <p style="color: #888; margin-bottom: 20px;">Formulario moderno con efecto cristal, etiquetas flotantes y validación animada</p>
+                <div class="code-section">
+                    <div class="code-tabs">
+                        <div class="code-tab active" onclick="showCode(this, 'glass-html')">HTML</div>
+                        <div class="code-tab" onclick="showCode(this, 'glass-css')">CSS</div>
+                    </div>
+                    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    <pre class="code-block active" id="glass-html">&lt;form class="form-glass"&gt;
+    &lt;h2&gt;Crear Cuenta&lt;/h2&gt;
+    &lt;p class="form-subtitle"&gt;Completa el formulario para registrarte&lt;/p&gt;
+    
+    &lt;div class="form-group"&gt;
+        &lt;input type="text" id="name" required&gt;
+        &lt;label for="name"&gt;Nombre completo&lt;/label&gt;
+        &lt;span class="input-line"&gt;&lt;/span&gt;
+        &lt;span class="error-message"&gt;Por favor ingresa tu nombre&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+        &lt;input type="email" id="email" required&gt;
+        &lt;label for="email"&gt;Correo electrónico&lt;/label&gt;
+        &lt;span class="input-line"&gt;&lt;/span&gt;
+        &lt;span class="error-message"&gt;Ingresa un correo válido&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+        &lt;input type="password" id="password" required&gt;
+        &lt;label for="password"&gt;Contraseña&lt;/label&gt;
+        &lt;span class="input-line"&gt;&lt;/span&gt;
+        &lt;span class="error-message"&gt;La contraseña debe tener al menos 8 caracteres&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+        &lt;select id="country" required&gt;
+            &lt;option value="" disabled selected&gt;&lt;/option&gt;
+            &lt;option value="es"&gt;España&lt;/option&gt;
+            &lt;option value="mx"&gt;México&lt;/option&gt;
+            &lt;option value="ar"&gt;Argentina&lt;/option&gt;
+            &lt;option value="co"&gt;Colombia&lt;/option&gt;
+            &lt;option value="cl"&gt;Chile&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;label for="country"&gt;País&lt;/label&gt;
+        &lt;span class="input-line"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+        &lt;textarea id="message" required&gt;&lt;/textarea&gt;
+        &lt;label for="message"&gt;Mensaje (opcional)&lt;/label&gt;
+        &lt;span class="input-line"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-checkbox"&gt;
+        &lt;input type="checkbox" id="terms"&gt;
+        &lt;span class="checkbox-custom"&gt;&lt;/span&gt;
+        &lt;label for="terms"&gt;Acepto los términos y condiciones&lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-submit"&gt;
+        &lt;button type="submit" class="submit-btn"&gt;Crear Cuenta&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</pre>
+                    <pre class="code-block" id="glass-css">.form-glass {
+    width: 100%;
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 50px 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.form-glass h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 15px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-group label {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.form-group input:focus,
+.form-group input:valid,
+.form-group textarea:focus,
+.form-group textarea:valid,
+.form-group select:focus,
+.form-group select:valid {
+    border-bottom-color: #667eea;
+}
+
+.form-group input:focus ~ label,
+.form-group input:valid ~ label,
+.form-group textarea:focus ~ label,
+.form-group textarea:valid ~ label,
+.form-group select:focus ~ label,
+.form-group select:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #667eea;
+}
+
+.form-group .input-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transition: width 0.3s ease;
+}
+
+.form-group input:focus ~ .input-line,
+.form-group textarea:focus ~ .input-line,
+.form-group select:focus ~ .input-line {
+    width: 100%;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.form-checkbox input[type="checkbox"] {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+}
+
+.form-checkbox .checkbox-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    margin-right: 12px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.form-checkbox input[type="checkbox"]:checked ~ .checkbox-custom {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-color: #667eea;
+}
+
+.form-checkbox .checkbox-custom::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 6px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-checkbox input[type="checkbox"]:checked ~ .checkbox-custom::after {
+    opacity: 1;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, 
+                rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mensaje de más próximamente -->
+        <div class="coming-soon">
+            <h3>Más estilos próximamente...</h3>
+            <p>Estamos trabajando en nuevos diseños de formularios innovadores</p>
+        </div>
+    </div>
+
+    <script src="../js/form.js"></script>
+</body>
+</html>
