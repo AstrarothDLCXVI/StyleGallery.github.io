@@ -298,7 +298,9 @@ body {
 .component-card:nth-child(1) { animation-delay: 0.1s; }
 .component-card:nth-child(2) { animation-delay: 0.2s; }
 .component-card:nth-child(3) { animation-delay: 0.3s; }
-.component-card:nth-child(4) { animation-delay: 0.4s; }
+.component-card:nth-child(4) { animation-delay: 0.1s; }
+.component-card:nth-child(5) { animation-delay: 0.2s; }
+.component-card:nth-child(6) { animation-delay: 0.3s; }
 
 /* Responsive */
 @media (max-width: 768px) {
