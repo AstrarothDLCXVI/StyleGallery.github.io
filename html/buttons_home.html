@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Botones Home</title>
+    <link rel="stylesheet" href="../css/buttons_home.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1 class="page-title">Galería de Botones Home</h1>
+        <p class="page-subtitle">Diseños modernos de botones Home con iconos CSS puros y animaciones</p>
+
+        <div class="buttons-container">
+            <!-- Botón Neon Glow -->
+            <div class="button-showcase">
+                <div class="button-demo">
+                    <button class="home-btn-neon">
+                        <span class="home-icon-neon"></span>
+                        <span>HOME</span>
+                    </button>
+                </div>
+                <div class="button-info">
+                    <h3>Neon Glow Home</h3>
+                    <p style="color: #888; margin-bottom: 20px;">Botón con efecto neón, icono animado y relleno al hover</p>
+                    <div class="code-section">
+                        <div class="code-tabs">
+                            <div class="code-tab active" onclick="showCode(this, 'neon-html')">HTML</div>
+                            <div class="code-tab" onclick="showCode(this, 'neon-css')">CSS</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                        <pre class="code-block active" id="neon-html">&lt;button class="home-btn-neon"&gt;
+    &lt;span class="home-icon-neon"&gt;&lt;/span&gt;
+    &lt;span&gt;HOME&lt;/span&gt;
+&lt;/button&gt;</pre>
+                        <pre class="code-block" id="neon-css">.home-btn-neon {
+    position: relative;
+    padding: 15px 40px;
+    background: transparent;
+    border: 2px solid #00ff88;
+    color: #00ff88;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.home-btn-neon .home-icon-neon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.home-btn-neon .home-icon-neon::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 10px solid #00ff88;
+    transition: all 0.3s ease;
+}
+
+.home-btn-neon .home-icon-neon::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 14px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00ff88;
+    transition: all 0.3s ease;
+}
+
+.home-btn-neon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #00ff88;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.home-btn-neon:hover {
+    color: #0a0a0a;
+    box-shadow: 0 0 30px #00ff88, 
+                inset 0 0 10px rgba(0, 255, 136, 0.2);
+    transform: translateY(-2px);
+}
+
+.home-btn-neon:hover::before {
+    left: 0;
+}
+
+.home-btn-neon:hover .home-icon-neon {
+    animation: bounce 0.6s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón Glassmorphism -->
+            <div class="button-showcase">
+                <div class="button-demo">
+                    <button class="home-btn-glass">
+                        <span class="home-icon-glass"></span>
+                        <span>Inicio</span>
+                    </button>
+                </div>
+                <div class="button-info">
+                    <h3>Glassmorphism Floating</h3>
+                    <p style="color: #888; margin-bottom: 20px;">Efecto cristal con icono flotante y gradiente animado</p>
+                    <div class="code-section">
+                        <div class="code-tabs">
+                            <div class="code-tab active" onclick="showCode(this, 'glass-html')">HTML</div>
+                            <div class="code-tab" onclick="showCode(this, 'glass-css')">CSS</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                        <pre class="code-block active" id="glass-html">&lt;button class="home-btn-glass"&gt;
+    &lt;span class="home-icon-glass"&gt;&lt;/span&gt;
+    &lt;span&gt;Inicio&lt;/span&gt;
+&lt;/button&gt;</pre>
+                        <pre class="code-block" id="glass-css">.home-btn-glass {
+    position: relative;
+    padding: 18px 45px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.home-btn-glass .home-icon-glass {
+    width: 26px;
+    height: 26px;
+    position: relative;
+    animation: float-icon 3s ease-in-out infinite;
+}
+
+@keyframes float-icon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+.home-btn-glass .home-icon-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 11px solid rgba(255, 255, 255, 0.9);
+}
+
+.home-btn-glass .home-icon-glass::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.home-btn-glass::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                transparent 70%);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.home-btn-glass:hover {
+    transform: translateY(-3px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+}
+
+.home-btn-glass:hover::before {
+    opacity: 1;
+    animation: rotate-gradient 2s linear infinite;
+}
+
+@keyframes rotate-gradient {
+    0% { transform: rotate(45deg); }
+    100% { transform: rotate(405deg); }
+}</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón Cyberpunk -->
+            <div class="button-showcase">
+                <div class="button-demo">
+                    <button class="home-btn-cyber">
+                        <span class="home-icon-cyber"></span>
+                        <span>HOME</span>
+                    </button>
+                </div>
+                <div class="button-info">
+                    <h3>Cyberpunk Circuit</h3>
+                    <p style="color: #888; margin-bottom: 20px;">Estilo futurista con línea de escaneo y efecto glitch</p>
+                    <div class="code-section">
+                        <div class="code-tabs">
+                            <div class="code-tab active" onclick="showCode(this, 'cyber-html')">HTML</div>
+                            <div class="code-tab" onclick="showCode(this, 'cyber-css')">CSS</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                        <pre class="code-block active" id="cyber-html">&lt;button class="home-btn-cyber"&gt;
+    &lt;span class="home-icon-cyber"&gt;&lt;/span&gt;
+    &lt;span&gt;HOME&lt;/span&gt;
+&lt;/button&gt;</pre>
+                        <pre class="code-block" id="cyber-css">.home-btn-cyber {
+    position: relative;
+    padding: 16px 50px;
+    background: #000;
+    border: 2px solid #0ff;
+    color: #0ff;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 
+                      100% 20px, 100% 100%, 
+                      20px 100%, 0 calc(100% - 20px));
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    overflow: hidden;
+}
+
+.home-btn-cyber .home-icon-cyber {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    z-index: 2;
+}
+
+.home-btn-cyber .home-icon-cyber::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 12px solid #0ff;
+    filter: drop-shadow(0 0 3px #0ff);
+}
+
+.home-btn-cyber .home-icon-cyber::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 16px;
+    background: #0ff;
+    filter: drop-shadow(0 0 3px #0ff);
+}
+
+.home-btn-cyber::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: #0ff;
+    animation: scan-line 3s linear infinite;
+}
+
+@keyframes scan-line {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.home-btn-cyber:hover {
+    background: #0ff;
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #0ff, 
+                inset 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.home-btn-cyber:hover .home-icon-cyber::before,
+.home-btn-cyber:hover .home-icon-cyber::after {
+    border-bottom-color: #000;
+    background: #000;
+    filter: none;
+}</pre>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="../js/buttons_home.js"></script>
+</body>
+</html>
