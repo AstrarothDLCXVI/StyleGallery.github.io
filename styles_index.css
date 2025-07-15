@@ -182,28 +182,19 @@ body {
 }
 
 .hero .AstraCodeLab {
-    padding: 15px 40px;
-    font-size: 18px;
-    background: #000;
-    color: rgb(160, 94, 231);
-    border: 2px solid rgb(149, 93, 209);
-    cursor: pointer;
-    position: relative;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    clip-path: polygon(0 0, calc(100% - 20px) 0, 
-                      100% 20px, 100% 100%, 
-                      20px 100%, 0 calc(100% - 20px));
-    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 30px;
     text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
 .hero .AstraCodeLab:hover {
-    background: #903bba;
-    color: #000;
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 20px #4054aa);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
 }
 
 .hero-badge {
