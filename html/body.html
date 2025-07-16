@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Fondos para Body</title>
+    <link rel="stylesheet" href="../css/body.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1 class="page-title">Galería de Fondos para Body</h1>
+        <p class="page-subtitle">Fondos animados modernos usando solo CSS</p>
+
+        <div class="backgrounds-grid">
+            <!-- Background 1: Animated Gradient Mesh -->
+            <div class="background-showcase">
+                <div class="background-demo">
+                    <div class="bg-gradient-mesh">
+                        <div class="gradient-orb"></div>
+                    </div>
+                    <div class="demo-content">
+                        <h4>Gradient Mesh</h4>
+                        <p>Fondo con orbes de gradiente animados</p>
+                    </div>
+                </div>
+                <div class="background-info">
+                    <h3>Animated Gradient Mesh</h3>
+                    <p style="color: #888; margin-bottom: 20px;">Fondo con gradientes suaves que se mueven creando un efecto mesh dinámico</p>
+                    <div class="code-section">
+                        <div class="code-tabs">
+                            <div class="code-tab active" onclick="showCode(this, 'mesh-html')">HTML</div>
+                            <div class="code-tab" onclick="showCode(this, 'mesh-css')">CSS</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                        <pre class="code-block active" id="mesh-html">&lt;body&gt;
+    &lt;div class="bg-gradient-mesh"&gt;
+        &lt;div class="gradient-orb"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Tu contenido aquí --&gt;
+    &lt;div class="content"&gt;
+        &lt;!-- Contenido de tu página --&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</pre>
+                        <pre class="code-block" id="mesh-css">body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.bg-gradient-mesh {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.bg-gradient-mesh::before,
+.bg-gradient-mesh::after,
+.gradient-orb {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    animation: float-orb 20s ease-in-out infinite;
+}
+
+.bg-gradient-mesh::before {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #667eea 0%, transparent 70%);
+    top: -300px;
+    left: -300px;
+    animation-duration: 25s;
+}
+
+.bg-gradient-mesh::after {
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, #764ba2 0%, transparent 70%);
+    bottom: -400px;
+    right: -400px;
+    animation-duration: 30s;
+    animation-delay: -5s;
+}
+
+.gradient-orb {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #f093fb 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-duration: 35s;
+    animation-delay: -10s;
+}
+
+@keyframes float-orb {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(100px, -100px) scale(1.1);
+    }
+    50% {
+        transform: translate(-100px, 100px) scale(0.9);
+    }
+    75% {
+        transform: translate(50px, 50px) scale(1.05);
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    /* Tu contenido con z-index superior al fondo */
+}</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Background 2: Animated Stars Field -->
+            <div class="background-showcase">
+                <div class="background-demo">
+                    <div class="bg-stars-field" id="starsField"></div>
+                    <div class="demo-content">
+                        <h4>Stars Field</h4>
+                        <p>Campo de estrellas animado con estrellas fugaces</p>
+                    </div>
+                </div>
+                <div class="background-info">
+                    <h3>Animated Stars Field</h3>
+                    <p style="color: #888; margin-bottom: 20px;">Fondo espacial con estrellas parpadeantes, estrellas fugaces y nebulosas</p>
+                    <div class="code-section">
+                        <div class="code-tabs">
+                            <div class="code-tab active" onclick="showCode(this, 'stars-html')">HTML</div>
+                            <div class="code-tab" onclick="showCode(this, 'stars-css')">CSS</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                        <pre class="code-block active" id="stars-html">&lt;body&gt;
+    &lt;div class="bg-stars-field"&gt;
+        &lt;div class="stars-layer"&gt;
+            &lt;!-- Las estrellas se generan dinámicamente con CSS --&gt;
+            &lt;div class="star" style="top: 10%; left: 20%; width: 2px; height: 2px; animation-delay: 0s;"&gt;&lt;/div&gt;
+            &lt;div class="star" style="top: 30%; left: 50%; width: 3px; height: 3px; animation-delay: 1s;"&gt;&lt;/div&gt;
+            &lt;div class="star" style="top: 60%; left: 80%; width: 2px; height: 2px; animation-delay: 2s;"&gt;&lt;/div&gt;
+            &lt;!-- Añade más estrellas según necesites --&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="shooting-star" style="top: 20%; left: -100px; animation-delay: 0s;"&gt;&lt;/div&gt;
+        &lt;div class="shooting-star" style="top: 50%; left: -100px; animation-delay: 5s;"&gt;&lt;/div&gt;
+        
+        &lt;div class="nebula" style="top: 10%; right: 10%;"&gt;&lt;/div&gt;
+        &lt;div class="nebula" style="bottom: 20%; left: 5%;"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Tu contenido aquí --&gt;
+    &lt;div class="content"&gt;
+        &lt;!-- Contenido de tu página --&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</pre>
+                        <pre class="code-block" id="stars-css">body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.bg-stars-field {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0a 100%);
+    overflow: hidden;
+    z-index: -1;
+}
+
+.stars-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+    animation: shoot 3s linear infinite;
+    opacity: 0;
+}
+
+.shooting-star::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.8), 
+                white);
+    transform: translateX(-100px);
+}
+
+@keyframes shoot {
+    0% {
+        transform: translate(0, 0) rotate(-45deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(600px, 600px) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+.nebula {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, 
+                rgba(102, 126, 234, 0.3) 0%, 
+                transparent 70%);
+    filter: blur(40px);
+    animation: drift 40s ease-in-out infinite;
+}
+
+@keyframes drift {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(100px, -50px) rotate(120deg);
+    }
+    66% {
+        transform: translate(-50px, 100px) rotate(240deg);
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    /* Tu contenido con z-index superior al fondo */
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/body.js"></script>
+</body>
+</html>
